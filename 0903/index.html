@@ -548,15 +548,19 @@
             안녕하세요.
          </p>
  <br>
- <p id="typing-text" style="font-weight: 100; width: 470px;">저의 홈페이지에 오신 것을 환영합니다.</p>
+ 
+ <p id="typing-text" style="font-weight: 100; width: 470px; height: 50px;">저의 홈페이지에 오신 것을 환영합니다.</p>
  <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const textElement = document.getElementById('typing-text');
       const text = textElement.textContent; // 타이핑할 텍스트
       textElement.textContent = ''; // 초기화
   
       let index = 0;
       const typingSpeed = 150; // 타이핑 속도 (밀리초 단위)
+      const eraseSpeed = 50; // 지우기 속도
+      const delayBeforeErase = 1000; // 타이핑 후 지우기 전까지 대기 시간
+      const delayBeforeType = 500; // 지운 후 다시 타이핑하기 전까지 대기 시간
   
       function type() {
         if (index < text.length) {
@@ -564,13 +568,24 @@
           index++;
           setTimeout(type, typingSpeed);
         } else {
-          textElement.style.borderRight = 'none'; // 타이핑 완료 후 커서 제거
+          setTimeout(erase, delayBeforeErase); // 타이핑 완료 후 지우기 시작
+        }
+      }
+  
+      function erase() {
+        if (index > 0) {
+          textElement.textContent = text.substring(0, index - 1); // 한 글자씩 지우기
+          index--;
+          setTimeout(erase, eraseSpeed);
+        } else {
+          setTimeout(type, delayBeforeType); // 지우기 완료 후 다시 타이핑 시작
         }
       }
   
       type(); // 타이핑 시작
     });
   </script>
+  
   
         </div>
         <div class="ba-img">
@@ -584,7 +599,9 @@
     <div class="container ">
         <div class="row" style="margin: 0";>
             <div class="col-md-6">
-                <div class="row image-grid">
+                <div class="row image-grid" data-aos="flip-right"
+                data-aos-duration="2000"  data-aos-delay="700"
+                data-aos-easing="ease" >
                     <div class="col-6 mb-3">
                         <a href="https://example.com/link1" class="d-block img-container">
                             <img src="images/bg1.jpg" alt="Image 1" class="img-fluid">
@@ -614,7 +631,7 @@
                     data-aos-easing="ease" style="word-spacing: 4px; background-color: rgba(255, 255, 255, 0.438); padding: 10px; border-radius: 100%; text-align: center; "><span style="font-weight: 100; font-size: 40px;"  >O u r</span> &nbsp; S e r v i c e s</h1> <br><br>
                     <p   data-aos="flip-right"
                     data-aos-duration="2000"
-                    data-aos-easing="ease" data-aos-delay="500" style="font-size: 20px; line-height: 40px; word-spacing: 10px; color: whitesmoke; font-weight: 100;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, nisl a scelerisque laoreet, arcu justo hendrerit justo, non venenatis odio dolor non erat. Sed id lacinia felis.</p>
+                    data-aos-easing="ease" data-aos-delay="700" style="font-size: 20px; line-height: 40px; word-spacing: 10px; color: whitesmoke; font-weight: 100;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, nisl a scelerisque laoreet, arcu justo hendrerit justo, non venenatis odio dolor non erat. Sed id lacinia felis.</p>
                 </div>
             </div>
         </div>
