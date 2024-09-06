@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배수빈</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="images/favicon2.ico" type="image/png">
+
+
+    <style>
+      body {
+        background: linear-gradient(#0a0525, #ffadeb);
+        font-family: 'Roboto', sans-serif;
+      }
+      #navbarNav {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+      }
+      .navbar-brand {
+        padding: 35px;
+        margin-left: 30px;
+      }
+      .nav-link {
+        color: white;
+      }
+      .navbar-nav {
+        font-size: 20px;
+        gap: 100px;
+        /* text-shadow: #00000041 9px 5px 2px; */
+      }
+      .nav-link:hover {
+        animation: menu 1.6s;
+        color: whitesmoke;
+      }
+      @keyframes menu {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+      }
+      .ba-img {
+        margin-left: 150px;
+      }
+      .logo {
+        color: white;
+      }
+      .carousel-item {
+            height: 100vh;
+            /* background: linear-gradient(#e66465, #9198e5); */
+            color: #fff;
+            position: relative;
+        }
+        .carousel-item img {
+            height: 100%;
+            object-fit: cover;
+        }
+        /* .carousel-caption {
+            width: 400px;
+            bottom: 65%;
+            left: 15%;
+            right: 5%;
+            text-align: left;
+        } */
+        .carousel-caption h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        /* .carousel-caption p {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        } */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.055); 
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: 15%;
+            right: 20%;
+            width: 300px;
+        }
+        .contact-form h4 {
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 100;
+            /* -webkit-text-stroke-width: 0.1px;
+            -webkit-text-stroke-color: rgb(255, 255, 255); */
+        }
+        .contact-form .form-control {
+            margin-bottom: 15px;
+        }
+        .contact-form button {
+            width: 100%;
+            background-color: whitesmoke;
+            border: 0;
+            color: black;
+        }
+        .image-grid {
+            padding: 80px 0;
+        }
+        .image-grid .img-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .image-grid .img-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        .image-grid .img-container:hover img {
+            transform: scale(1.05);
+        }
+        .text-section {
+            padding: 70px 0;
+        }
+        .text-section .text-content {
+            padding: 20px;
+            width: 550px;
+        }
+        .card-deck {
+            margin-bottom: 150px;
+        }
+        .card {
+            /* border: 1px solid #ddd;  */
+            border: none;
+            border-radius: 15px; 
+        }
+     
+        .square-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 100px;
+            margin-bottom: 200px;
+            flex-wrap: wrap; /* Added to wrap elements on smaller screens */
+        }
+
+        .box-01, .box-02, .box-03 {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.288);
+            border-radius: 100%;
+            width: 270px; /* Ensure boxes don't get too wide */
+            height: 270px;
+            text-align: center; /* Center text for better appearance */
+        }
+
+        @media (max-width: 1200px) {
+            .square-container {
+                gap: 50px; /* Reduced gap on smaller screens */
+            }
+        }
+
+        @media (max-width: 900px) {
+            .square-container {
+                gap: 20px; /* Further reduced gap on even smaller screens */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .square-container {
+                flex-direction: column; /* Stack boxes vertically on very small screens */
+                margin-bottom: 50px; /* Adjust margin for small screens */
+            }
+
+            .box-01, .box-02, .box-03 {
+                max-width: 100%; /* Allow boxes to take full width of the container */
+                margin-bottom: 20px; /* Space between stacked boxes */
+            }
+        }
+        .gallery {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .gallery p {
+            width: 100%;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            font-size: 50px;
+            font-weight: 200;
+            background-color: rgba(255, 255, 255, 0.438);
+            padding: 10px;
+            border-radius: 100%;
+            word-spacing: 13px;
+            color: #333;
+        }
+        .gallery p b {
+            font-weight: 800;
+            font-size: 35px;
+        }
+        .gallery p i {
+            font-style: italic;
+        }
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            padding: 0 20px;
+        }
+        .photo-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-card:hover {
+            transform: scale(1.05);
+        }
+        .photo-card::after {
+            content: '';
+            display: block;
+            padding-top: 100%; /* Aspect ratio 1:1 */
+        }
+        .photo-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .photo-card:hover .overlay {
+            opacity: 1;
+        }
+        .overlay-text {
+            font-size: 18px;
+            text-align: center;
+            padding: 10px;
+        }
+        .gallery {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .gallery p {
+            width: 100%;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            font-size: 50px;
+            font-weight: 200;
+            background-color: rgba(255, 255, 255, 0.438);
+            padding: 10px;
+            border-radius: 100%;
+            word-spacing: 13px;
+            color: #333;
+        }
+        .gallery p b {
+            font-weight: 800;
+            font-size: 35px;
+        }
+        .gallery p i {
+            font-style: italic;
+        }
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 300px); /* 3 columns with 300px width */
+            grid-gap: 20px;
+            justify-content: center; /* Center the grid in the container */
+            padding: 0 20px;
+            margin: 0 auto; /* Center the grid in the container */
+        }
+        .photo-card {
+            width: 300px; /* Fixed width */
+            height: 200px; /* Fixed height */
+            background-color: white;
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-card:hover {
+            transform: scale(1.05);
+        }
+        .photo-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .photo-card:hover .overlay {
+            opacity: 1;
+        }
+        .overlay-text {
+            font-size: 18px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .floating-menu {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 99999;
+}
+
+.menu-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.3); /* 아이콘 확대 효과 */
+}
+
+.menu-item i {
+    font-size: 28px; /* 아이콘 크기 */
+    color: #ffffff; /* 아이콘 색상 */
+    transition: color 0.3s;
+}
+
+.menu-item:hover i {
+     /* color: #f1c40f;아이콘 호버 시 색상 변화 */
+
+.menu-item:hover {
+    transform: scale(1.2);
+
+}
+
+.menu-item i {
+    font-size: 24px;
+    color: #fff;
+}
+
+
+    </style>
+
+<script>
+    // Kakao SDK 초기화
+    Kakao.init('ea06bde07543dd8279887f1129a9800d'); // Replace with your REST API Key
+</script>
+
+<script>
+    document.querySelector('.kakao-share-button').addEventListener('click', function() {
+        Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: 'Check out this page!',
+                description: 'Visit this link for more information.',
+                imageUrl: 'https://example.com/image.jpg',
+                link: {
+                    mobileWebUrl: 'https://baesub.github.io/subin/bin/src/main/webapp/main/main.html',
+                    webUrl: 'https://baesub.github.io/subin/bin/src/main/webapp/main/main.html'
+                }
+            },
+            buttons: [
+                {
+                    title: 'View more',
+                    link: {
+                        mobileWebUrl: 'https://baesub.github.io/subin/bin/src/main/webapp/main/main.html',
+                        webUrl: 'https://baesub.github.io/subin/bin/src/main/webapp/main/main.html'
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+
+
+
+</head>
+<body>
+    <div class="floating-menu">
+        <div class="menu-item">
+            <a href="https://github.com/baesub?tab=repositories" target="_blank" class="menu-item">
+                <i class="fab fa-github"></i>
+            </a><!-- 깃허브 아이콘 -->
+        </div>
+        <div class="menu-item">
+            <a href="https://baesub.github.io/subin/bin/src/main/webapp/main/main.html" target="_blank" class="menu-item">
+            <i class="fas fa-globe"></i>
+        </a> <!-- 지구 아이콘 -->
+        </div>
+        <div class="menu-item kakao"> 
+                <i class="fas fa-share"></i> <!-- 전화기 아이콘 -->
+        </div>
+        
+        <script>
+            // 카카오 SDK 초기화
+            Kakao.init('d78d031061908effefaad61b16c5ab75'); // 'YOUR_JAVASCRIPT_KEY'를 실제 카카오 JavaScript 키로 교체하세요.
+            
+            // 모든 .menu-item 요소에 클릭 이벤트 추가
+            document.querySelectorAll('.kakao').forEach(item => {
+                item.addEventListener('click', function() {
+                    Kakao.Share.sendDefault({
+                        objectType: 'feed',
+                        content: {
+                            title: '제목', // 공유할 제목
+                            description: '설명', // 설명
+                            imageUrl: 'https://example.com/image.jpg', // 이미지 URL
+                            link: {
+                                mobileWebUrl: 'http://192.168.56.1:5500/index.html', // 공유할 모바일 웹 URL
+                                webUrl: 'http://192.168.56.1:5500/index.html' // 공유할 웹 URL
+                            }
+                        },
+                        social: {
+                            likeCount: 0,
+                            commentCount: 0,
+                            sharedCount: 0
+                        },
+                        buttons: [
+                            {
+                                title: '웹사이트 방문',
+                                link: {
+                                    mobileWebUrl: 'http://192.168.56.1:5500/index.html',
+                                    webUrl: 'http://192.168.56.1:5500/index.html'
+                                }
+                            }
+                        ]
+                    });
+                });
+            });
+            </script>
+            
+        
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <!-- <a class="navbar-brand logo" href="index.html"><img src="images/logo.png"></a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#service">service <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#slogan">slogan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#feature">feature</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+  // Function to smoothly scroll to a target element
+  function smoothScroll(target, duration) {
+    const targetElement = document.querySelector(target);
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+
+      // Ease-in-out function for a smoother effect
+      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function easeInOutQuad(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+  }
+
+  // Add click event listeners to anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      smoothScroll(this.getAttribute("href"), 2000); // Duration set to 2000ms (2 seconds)
+    });
+  });
+});
+
+    </script>
+
+    <!-- banner -->
+    <div class="top-banner" style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-top: 180px; gap: 200px; margin-bottom: 400px;">
+        <div class="ba-text" style="color: whitesmoke; word-spacing: 7px; font-size: 25px;">
+            <p style="font-size: 55px; word-spacing: 1px; font-weight: 800;"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+            data-aos-easing="ease">
+            안녕하세요.
+         </p>
+ <br>
+ <p id="typing-text" style="font-weight: 100; width: 470px;">저의 홈페이지에 오신 것을 환영합니다.</p>
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const textElement = document.getElementById('typing-text');
+      const text = textElement.textContent; // 타이핑할 텍스트
+      textElement.textContent = ''; // 초기화
+  
+      let index = 0;
+      const typingSpeed = 150; // 타이핑 속도 (밀리초 단위)
+  
+      function type() {
+        if (index < text.length) {
+          textElement.textContent += text.charAt(index); // 한 글자씩 추가
+          index++;
+          setTimeout(type, typingSpeed);
+        } else {
+          textElement.style.borderRight = 'none'; // 타이핑 완료 후 커서 제거
+        }
+      }
+  
+      type(); // 타이핑 시작
+    });
+  </script>
+  
+        </div>
+        <div class="ba-img">
+            <img src="images/first.png" style="max-height: 100%; display: block;">
+        </div>
+    </div>
+    
+
+
+    <!-- Image Grid and Text Section -->
+    <div class="container ">
+        <div class="row" style="margin: 0";>
+            <div class="col-md-6">
+                <div class="row image-grid">
+                    <div class="col-6 mb-3">
+                        <a href="https://example.com/link1" class="d-block img-container">
+                            <img src="images/bg1.jpg" alt="Image 1" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <a href="https://example.com/link2" class="d-block img-container">
+                            <img src="images/bg2.jpg" alt="Image 2" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <a href="https://example.com/link3" class="d-block img-container">
+                            <img src="images/bg3.jpg" alt="Image 3" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <a href="https://example.com/link4" class="d-block img-container">
+                            <img src="images/bg4.jpg" alt="Image 4" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="service" class="col-md-6 text-section">
+                <div class="text-content" >
+                    <h1  data-aos="flip-left"
+                    data-aos-duration="1700"
+                    data-aos-easing="ease" style="word-spacing: 4px; background-color: rgba(255, 255, 255, 0.438); padding: 10px; border-radius: 100%; text-align: center; "><span style="font-weight: 100; font-size: 40px;"  >O u r</span> &nbsp; S e r v i c e s</h1> <br><br>
+                    <p   data-aos="flip-right"
+                    data-aos-duration="2000"
+                    data-aos-easing="ease" data-aos-delay="500" style="font-size: 20px; line-height: 40px; word-spacing: 10px; color: whitesmoke; font-weight: 100;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra, nisl a scelerisque laoreet, arcu justo hendrerit justo, non venenatis odio dolor non erat. Sed id lacinia felis.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 02 -->
+        <!-- Card Deck -->
+        <div class="row card-deck" style="margin-top: 100px; margin-bottom: 170px;" >
+            <p  data-aos="flip-down"
+            data-aos-duration="1700"
+            data-aos-easing="ease" style="width: 100%; display: flex; text-align: center; justify-content: center; margin-bottom: 90px; margin-top: 120px; font-size: 50px; font-weight: 200; background-color: rgba(255, 255, 255, 0.438); padding: 10px; border-radius: 100%; word-spacing: 13px;"> Our &nbsp; <b style="font-weight: 800; font-size: 35px; "><i>a m a z i n g &nbsp;</i></b> services</p>
+            <div class="col-md-4">
+                <div class="card"  data-aos="flip-right"
+                data-aos-duration="1900"
+                data-aos-easing="ease" data-aos-delay="300" >
+                    <img src="images/port4.jpg" class="card-img-top" alt="Card image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 1</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card"  data-aos="flip-left"
+                data-aos-duration="1900"
+                data-aos-easing="ease" data-aos-delay="1000" >
+                    <img src="images/port5.jpg" class="card-img-top" alt="Card image 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 2</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card"  data-aos="flip-right"
+                data-aos-duration="1900"
+                data-aos-easing="ease" data-aos-delay="1700" >
+                    <img src="images/port6.jpg" class="card-img-top" alt="Card image 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 3</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="slogan" class="slogan" style="position: relative; margin-bottom: 300px; margin-top: 300px; padding: 20px; background: linear-gradient(hwb(0 0% 100% / 0), rgba(0, 0, 0, 0.801)); border-radius: 50%;">
+            <div class="s-box" style="position: relative; height: 300px; padding: 20px; border-radius: 2px; text-align: left; padding-top: 50px;">
+                <h1  data-aos="fade-left"
+                data-aos-duration="2100"
+                data-aos-easing="ease" style="text-shadow: rgba(173, 173, 173, 0.226) 6px 5px 1px; word-spacing: 4px; color: rgba(0, 0, 0, 0.815);"> <i>O u r &nbsp;S l o g a n . . .</i> </h1> <br>
+                <p style="font-size: 20px; font-weight: 100; line-height: 40px; word-spacing:10px; color: rgba(245, 245, 245, 0.801);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Sed viverra, nisl a scelerisque laoreet, arcu justo hendrerit justo, non venenatis odio dolor non erat. Donec ac erat et libero fermentum aliquet nec et ligula. Sed id lacinia felis.</p>
+            </div>
+        </div>
+
+        <div id="feature" class="square-container" style="display: flex; flex-direction: row; display: flex; justify-content: center; gap: 100px; margin-bottom: 200px;">
+            <div  data-aos="zoom-in"
+            data-aos-duration="2200"
+            data-aos-easing="ease" class="box-01" style=" padding: 20px; background-color: rgba(255, 255, 255, 0.288); border-radius: 100%;">
+                <p style="font-size: 40px; font-weight: 400;">Feature ❶ </p>
+                <p style=" inline-size: 260px;
+                overflow: hidden; font-weight: 300; line-height: 40px; word-spacing: 5px; text-align: center; font-size: 17px;">Some quick example text to build on the card title and bulk of the card's content.</p>
+            </div>
+            <div  data-aos="zoom-in"
+            data-aos-duration="2200"
+            data-aos-easing="ease"  class="box-02" style=" padding: 20px; background-color: rgba(255, 255, 255, 0.288); border-radius: 100%;">
+                <p style="font-size: 40px; font-weight: 400">Feature ❷ </p>
+                <p style=" inline-size: 240px;
+                overflow: hidden; font-weight: 300; line-height: 40px; word-spacing: 5px; text-align: center; font-size: 17px;">nisl a scelerisque laoreet, arcu justo hendrerit justo, non venenatis odio dolor non erat.</p>
+            </div>
+            <div  data-aos="zoom-in"
+            data-aos-duration="2200"
+            data-aos-easing="ease"  class="box-03" style=" padding: 20px; background-color: rgba(255, 255, 255, 0.288); border-radius: 100%;">
+                <p style="font-size: 40px; font-weight: 400">Feature ❸ </p>
+                <p style=" inline-size: 240px;
+                overflow: hidden; font-weight: 300; line-height: 40px; word-spacing: 5px; text-align: center; font-size: 17px;"> non venenatis  arcu justo hendrerit justo!</p>
+            </div>
+        </div>
+
+        <div id="gallery" class="gallery" style="margin-bottom: 200px; margin-top: 300px;">
+            <p  data-aos="flip-right"
+            data-aos-duration="2500"
+            data-aos-easing="ease"  style="margin-bottom: 90px;">Our &nbsp; <b><i>g a l l e r y &nbsp;</i></b></p>
+            <div data-aos="fade-up"
+            data-aos-duration="2500"
+            data-aos-easing="ease" data-aos-delay="600" class="photo-grid" style="gap: 50px;">
+                <div class="photo-card">
+                    <img src="images/port1.jpg" alt="Photo 1">
+                    <div class="overlay">
+                        <div class="overlay-text">Photo 1</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="images/port2.jpg" alt="Photo 2">
+                    <div class="overlay">
+                        <div class="overlay-text">Photo 2</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="images/port3.jpg" alt="Photo 3">
+                    <div class="overlay">
+                        <div class="overlay-text">Photo 3</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="images/port4.jpg" alt="Photo 4">
+                    <div class="overlay">
+                        <div class="overlay-text">Photo 4</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="images/port5.jpg" alt="Photo 5">
+                    <div class="overlay">
+                        <div class="overlay-text">Photo 5</div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="images/port6.jpg" alt="Photo 6">
+                    <div class="overlay">
+                        <div class="overlay-text">Photo 6</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        AOS.init();
+      </script>
+
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="
